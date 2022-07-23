@@ -4,4 +4,8 @@ async function getById(id: number) {
   return teacherRepository.getById(id);
 }
 
-export default { getById };
+async function getByDiscipline(discipline: number) {
+  return teacherRepository.getByDiscipline(discipline);
+}
+
+export default { getById, getByDiscipline };

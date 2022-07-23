@@ -4,4 +4,8 @@ async function getById(id: number) {
   return categoryRepository.getById(id);
 }
 
-export default { getById };
+async function findMany() {
+  return categoryRepository.findMany();
+}
+
+export default { getById, findMany };

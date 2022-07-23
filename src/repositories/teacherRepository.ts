@@ -6,4 +6,13 @@ async function getById(id: number) {
   });
 }
 
-export default { getById };
+async function getByDiscipline(discipline: number) {
+  return prisma.teacher.findMany({
+    where: { TeacherDiscipline: { some: { disciplineId: discipline } } },
+  });
+}
+
+export default {
+  getById,
+  getByDiscipline,
+};

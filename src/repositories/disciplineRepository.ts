@@ -6,4 +6,13 @@ async function getById(id: number) {
   });
 }
 
-export default { getById };
+async function getByTerm(term: number) {
+  return prisma.discipline.findMany({
+    where: { termId: term },
+  });
+}
+
+export default {
+  getById,
+  getByTerm,
+};

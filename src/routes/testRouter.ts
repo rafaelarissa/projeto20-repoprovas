@@ -13,4 +13,6 @@ testRouter.post(
   testController.insert
 );
 
+testRouter.get("/tests", ensureAuthenticatedMiddleware, testController.find);
+
 export default testRouter;

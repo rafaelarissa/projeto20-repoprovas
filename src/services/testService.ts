@@ -6,10 +6,7 @@ import disciplineService from "./disciplineService.js";
 import teacherDisciplineService from "./teacherDisciplineService.js";
 import teacherService from "./teacherService.js";
 
-export type CreateTestData = Omit<
-  Test,
-  "id" | "teacherDisciplineId" | "view"
-> & {
+export type CreateTestData = Omit<Test, "id" | "teacherDisciplineId"> & {
   teacherId: number;
   disciplineId: number;
 };

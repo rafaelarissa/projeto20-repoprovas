@@ -6,6 +6,22 @@ async function insert(req: Request, res: Response) {
   res.sendStatus(201);
 }
 
+async function find(req: Request, res: Response) {
+  const { groupBy, teacher, discipline } = req.query as {
+    groupBy: string;
+    teacher: string;
+    discipline: string;
+  };
+
+  if (groupBy !== "disciplines" && groupBy !== "teachers") {
+    return res.sendStatus(400);
+  }
+
+  const tests = await testService.find({ groupBy, teacher, discipline });
+  res.send({ tests });
+}
+
 export default {
   insert,
+  find,
 };

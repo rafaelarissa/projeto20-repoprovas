@@ -13,6 +13,21 @@ export type CreateTestData = Omit<
   teacherId: number;
   disciplineId: number;
 };
+
+interface Filter {
+  groupBy: "disciplines" | "teachers";
+  teacher?: string;
+  discipline?: string;
+}
+
+async function find(filter: Filter) {
+  if (filter.groupBy === "disciplines") {
+    return testRepository.getTestsByDiscipline(filter.discipline);
+  } else if (filter.groupBy === "teachers") {
+    return testRepository.getTestsByTeachers(filter.teacher);
+  }
+}
+
 async function insert(createTestData: CreateTestData) {
   const { categoryId, teacherId, disciplineId, name, pdfUrl } = createTestData;
 
@@ -41,4 +56,4 @@ async function insert(createTestData: CreateTestData) {
   });
 }
 
-export default { insert };
+export default { insert, find };

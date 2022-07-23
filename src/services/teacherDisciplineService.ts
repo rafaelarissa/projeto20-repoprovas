@@ -1,4 +1,4 @@
-import teacherDisciplineRepository from "../repositories/teacherDisciplineRepository";
+import teacherDisciplineRepository from "../repositories/teacherDisciplineRepository.js";
 
 export async function getByTeacherAndDiscipline(
   teacherId: number,

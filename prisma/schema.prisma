@@ -72,5 +72,5 @@ model Test {
   teacherDiscipline   TeacherDiscipline @relation(fields: [teacherDisciplineId], references: [id])
   teacherDisciplineId Int
 
-  @@map("testes")
+  @@map("tests")
 }

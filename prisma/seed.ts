@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { prisma } from "../src/config/database";
 async function main() {
-  const hashedPassword = bcrypt.hashSync("default", 10);
+  const hashedPassword = bcrypt.hashSync("admin", 10);
 
   await prisma.user.upsert({
     where: { email: "test@gmail.com" },

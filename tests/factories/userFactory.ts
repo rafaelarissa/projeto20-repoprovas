@@ -1,14 +1,17 @@
+import { CreateUserData } from "./../../src/services/userService";
 import bcrypt from "bcrypt";
 import { prisma } from "../../src/config/database.js";
 import { faker } from "@faker-js/faker";
 
-export async function createUser() {
-  const user = {
+export default function createUserBody(): CreateUserData {
+  return {
     email: faker.internet.email(),
     password: faker.internet.password(),
   };
+}
 
-  return await prisma.user.create({
+export async function createUser(user: CreateUserData) {
+  await prisma.user.create({
     data: {
       email: user.email,
       password: bcrypt.hashSync(user.password, 10),

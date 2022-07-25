@@ -11,9 +11,9 @@ export default function createUserBody(): CreateUserData {
 }
 
 export async function createUser(user: CreateUserData) {
-  await prisma.user.create({
+  return await prisma.user.create({
     data: {
-      email: user.email,
+      ...user,
       password: bcrypt.hashSync(user.password, 10),
     },
   });

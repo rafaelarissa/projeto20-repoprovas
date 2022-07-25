@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc src/server.ts",
+    "build": "tsc src/config/server.ts",
     "start": "node dist/server.js",
     "dev": "nodemon src/config/server.ts",
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i"
